@@ -100,7 +100,7 @@ const showCategory = (categories) => {
     .classList.add("bg-green-700", "text-white");
 };
 
-// Function to load tress by categories
+//   --- Function to load tress by categories
 const loadTreesByCategory = async (id) => {
   showLoading();
   try {
@@ -115,7 +115,7 @@ const loadTreesByCategory = async (id) => {
   }
 };
 
-// Function to show Tress By Category
+// --- Function to show Tress By Category
 const showTressByCategory = (trees) => {
   treesCardContainer.innerHTML = "";
   try {
@@ -149,9 +149,9 @@ const showTressByCategory = (trees) => {
   }
 };
 
-// Event Deligation for All Tree cards:
-// Listent for clicks on the treeCardContainer and check
-// if the target is Add to cart btn or tree title (to open detail modal)
+// --- Event Deligation for All Tree cards:
+// --- Listent for clicks on the treeCardContainer and check
+// --- if the target is Add to cart btn or tree title (to open detail modal)
 treesCardContainer.addEventListener("click", (e) => {
   if (e.target.innerText === "Add to Cart") {
     handleCart(e);
@@ -161,7 +161,7 @@ treesCardContainer.addEventListener("click", (e) => {
   }
 });
 
-// Function for handle Cart
+// --- Function for handle Cart
 const handleCart = (e) => {
   const parent = e.target.parentNode.parentNode;
   const id = parent.parentNode.id;
@@ -176,9 +176,9 @@ const handleCart = (e) => {
   showToast(title);
 };
 
-// Function for add tree into cart
+// --- Function for add tree into cart
 const showCart = (carts) => {
-  // alert("added cart")
+  // --- alert("added cart")
   const totalPrice = carts.reduce((acc, cur) => acc + Number(cur.price), 0);
   cartContainer.innerHTML = "";
   mobileCartContainer.innerHTML = "";
@@ -253,14 +253,14 @@ const showCart = (carts) => {
   cartCount.textContent = carts.length;
 };
 
-// Function for delete item from cart
+// --Function for delete item from cart
 const handleDeleteItem = (id) => {
   const filterredCart = carts.filter((cart) => Number(cart.id) !== id);
   carts = filterredCart;
   showCart(carts);
 };
 
-// === Functioin for  handle view modal===
+// == Functioin for  handle view modal==
 const handleViewModal = async (e) => {
   const id = e.target.parentNode.parentNode.parentNode.id;
   const res = await fetch(
